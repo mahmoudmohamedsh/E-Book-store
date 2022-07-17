@@ -25,6 +25,6 @@ app.use((error,req,res,next)=>{
 });
 
 mongoose.connect('mongodb+srv://sharp2:dnw0fx60ldLKCgu2@cluster0.o5no6.mongodb.net/?retryWrites=true&w=majority').then(result=>{
-    app.listen(8080); 
+    app.listen(process.env.PORT || 8080); 
     console.log('done server running');
 }).catch(err=>console.log(err)); 
