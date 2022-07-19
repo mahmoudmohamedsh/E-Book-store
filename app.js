@@ -1,7 +1,9 @@
 const express = require('express')
 const userRoutes = require('./routes/users')
+const bookRoutes = require('./routes/books')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const path = require('path');
 
 const app = express();
 //allow headers and methods
@@ -15,7 +17,12 @@ next();
 
 //add routes
 app.use(bodyParser.json());
+
+//image upload
+app.use('/images',express.static(path.join(__dirname,'images')))
+
 app.use('/user',userRoutes);
+app.use('/book',bookRoutes);
 //error route
 app.use((error,req,res,next)=>{
     console.log(error);

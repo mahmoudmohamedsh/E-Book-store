@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 const router = express.Router();
 
-//Post /user/login
+//Post /user/signup
 router.post('/signup',
     [
     body('email').isEmail().withMessage('please enter valid email').custom(
@@ -22,6 +22,8 @@ router.post('/signup',
     ],
     usersController.signup);
 
+
+    // POST /user/login
 router.post('/login',usersController.login);
 
 module.exports = router;

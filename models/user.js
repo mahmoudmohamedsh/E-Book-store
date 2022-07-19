@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { stringify } = require('querystring');
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
     email:{
